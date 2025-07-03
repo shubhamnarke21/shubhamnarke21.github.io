@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Portfolio</title>
+<link rel="stylesheet" href="style.css" />
+<!-- Google Fonts for better typography -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+</head>
+<body>
+<header>
+  <h1>Your Name</h1>
+  <button id="darkModeToggle">🌙</button>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="about" class="section fade-in">
+  <h2>About Me</h2>
+  <p>General Information: Hello everyone, 
+    My name is Shubham Narke, and I hail from Kolhapur, the historical capital of Maharashtra. 
+    Currently, I reside in Pune, where I work as a PLC programmer. 
+    I have successfully completed numerous projects in process automation and special-purpose machinery.
+    In terms of my educational background, I hold a B.Tech in Electrical Engineering with an impressive 
+    CGPA of 9.65 from D.BATU, Lonere, an autonomous university under the Government of Maharashtra.
+    Additionally, I earned a Diploma in Electrical Engineering with a score of 84.30% from the MSBTE Board in Mumbai,
+    and I completed my SSC at Hanmantwadi High School, achieving 89.20%.
+    Beyond my professional and academic pursuits, I have a passion for the arts; I am skilled in painting, sculpting, and drawing.
+    My key strengths include punctuality, a strong eagerness to learn new technologies, and a commitment to honesty, dedication, 
+    and perseverance in my work, career, and life. </p>
+  
+  <h3>Upload Images</h3>
+  <button>Upload</button>
+  
+  <h3>Educational Details</h3>
+  <ul>
+    <li>College or University Details</li>
+    <li>Bachelor of Technology (B.Tech) in Electrical Engineering
+        D.BATU, Lonere
+        CGPA: 9.65
+        (An autonomous university under the Government of Maharashtra)
+
+        Diploma in Electrical Engineering
+        MSBTE Board, Mumbai
+        Percentage: 84.30%
+
+        Secondary School Certificate (SSC)
+        Hanmantwadi High School, Hanmantwadi
+        Percentage: 89.20%
+
+</li>
+  </ul>
+  
+  <h3>Hobbies & Strengths</h3>
+  <p>Hobbies:
+           Painting: Skilled in various painting techniques and styles.
+           Sculpting: Enjoy creating three-dimensional art using different materials.
+           Drawing: Proficient in sketching and illustrating various subjects.
+
+    Strengths:
+            Punctuality: Consistently on time and respect deadlines.
+            Lifelong Learner: Eager to acquire new technologies and skills.
+            Integrity: Committed to honesty and ethical practices in all endeavors.
+            Dedication: Passionate and focused on achieving excellence in work and career.
+            Perseverance: Resilient in facing challenges and committed to personal and professional growth.</p>
+  
+  <h3>Family Background</h3>
+  <p>Come to my family background there are four member in my family my father, mother, sister and me 
+    my father is farmer, my mother is house maker and younger sister has completed her MBA.</p>
+</section>
+
+<section id="projects" class="section fade-in">
+  <h2>My Work</h2>
+  <div class="projects">
+    <div class="project">
+      <h3>Special Purpose Machine :- </h3>
+      <p>In special purpose machine i have worked on Bandsaw machines, bandpress machines, drill machines,
+        Varnishing Machines, Leak Testing machine, printer Machines, Chillers  and many more.
+      </p>
+    </div>
+    <div class="project">
+      <h3>Process Industry :- </h3>
+      <p>In process i have done commisioning of projects of Plywood Plant, Chemical Industry  and STP Plants. </p>
+    </div>
+    <div class="Skill">
+      <h3>Technical Skills :- </h3>
+      <p>Proficiency in PLC and HMI programming Using Codesys software platform.
+         Basic Knowledge of Structured text programming.
+         Knowledge of different field Instruments in Automation Industry.
+      </p>
+    </div>
+    <div class="Advance skills">
+      <h3>Computer Networking Technical Skills :-</h3>
+      <p>Basic Knowledge of Computer Networking and python.
+         knowledge of Modbus, Ethernet Ip, Ethercat, OPC UA, Profinet, Profibus, CAN, FTP Server and different communication Protocols.
+         Knowledge of AWS IOT core by using MQTT protocol and Mosqutto Broker, also have knowledge of Node Red GUI design
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section fade-in">
+  <h2>Contact Me</h2>
+  <form id="contactForm">
+    <label>Name:</label>
+    <input type="text" name="Shubham Narke" required />
+    <label>Email:</label>
+    <input type="email" name="shubhamnarke2020@gmail.com" required />
+    <label>Message:</label>
+    <textarea name="7887335711" rows="4" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 Shubham Narke. All Rights Reserved.</p>
+</footer>
+
+<!-- Add scripts for interactions -->
+<script>
+  // Dark mode toggle
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const body = document.body;
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    toggleBtn.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  });
+
+  // Smooth scroll with animation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = {
+    threshold: 0,
+    rootMargin: "0px 0px -50px 0px"
+  };
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        return;
+      } else {
+        entry.target.classList.add('appear');
+        appearOnScroll.unobserve(entry.target);
+      }
+    });
+  }, appearOptions);
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+</body>
+</html>
